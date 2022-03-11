@@ -2,6 +2,14 @@
   "name": "gh-ch-ls",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext js,jsx",
+    "lint:fix": "yarn lint --fix"
+  },
   "dependencies": {
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11",
@@ -10,6 +18,14 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "babel-eslint": "10.1.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-config-standard-jsx": "10.0.0",
+    "eslint-config-standard-react": "11.0.1",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-only-warn": "1.0.3",
+    "eslint-plugin-promise": "6.0.0",
     "framer-motion": "^6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -17,20 +33,12 @@
     "react-hooks-form": "^2.0.1",
     "react-router-dom": "6",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
     "web-vitals": "^2.1.0",
     "yup": "^0.32.11"
   },
-  "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "./.eslintrc.json"
   },
   "browserslist": {
     "production": [
@@ -43,5 +51,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-plugin-react": "7.29.3",
+    "prettier": "2.5.1"
   }
 }
