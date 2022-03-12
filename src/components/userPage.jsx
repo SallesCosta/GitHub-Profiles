@@ -25,7 +25,7 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
           </Button>
           <img alt='user pic' src={userData.avatar_url} />
           <>
-            <p>Name: {userData.login}</p>
+            <p>Name: {userData.name}</p>
             <p>Total number of repositories: {userData.public_repos}</p>
           </>
           <a
@@ -45,6 +45,7 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
         <Grid>
           {userRepos.map((repo) => {
             const stack = repo.language
+            // console.log(stack)
             return (
               <Repo key={repo.id}>
                 <RepoHeader>
@@ -55,7 +56,6 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
                 </RepoHeader>
                 <p>{repo.description ? repo.description : 'No description'}</p>
                 <Tag tagName={stack} />
-                {/* <UserTag tagName={stack} /> */}
               </Repo>
             )
           })}

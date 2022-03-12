@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/macro'
-import { theme as T, User } from '../resource/theme'
+import { theme as T } from '../resource/theme'
 
 export const Content = styled.div`
   width: 1100px;
@@ -32,7 +32,7 @@ export const Tag = ({ tagName }) => {
     const border = T.colors.noLanguage.border
     return (
       <TagInternal bg={bg} border={border}>
-        No Language
+       Other or more than 3 
       </TagInternal>
     )
   } else {
@@ -90,6 +90,7 @@ export const Repo = styled.div`
   }
   p {
     font-size: 0.9rem;
+    overflow: hidden;
     height: 115px;
   }
 `
