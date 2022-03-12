@@ -15,13 +15,13 @@ import {
 } from './sytles-userPage'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
-export const UserPage = ({ userData, userRepos }) => {
+export const UserPage = ({ userData, userRepos, backToSearch }) => {
   return (
     <Content>
       <HStack>
         <UserSection>
-          <Button primary>
-            <Link to='/'>back to Search Page</Link>
+          <Button primary onClick={backToSearch}>
+            back to Search Page
           </Button>
           <img alt='user pic' src={userData.avatar_url} />
           <>

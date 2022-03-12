@@ -3,7 +3,7 @@ import { SearchPage } from './components/search/searchPage'
 import { UserPage } from './components/user/userPage'
 import React, { useEffect, useState } from 'react'
 
-export function App () {
+export function App() {
   const [userData, setUserData] = useState('')
   const [userRepos, setUserRepos] = useState([])
 
@@ -12,6 +12,11 @@ export function App () {
   const onSubmit = (data) => {
     const userUrl = `https://api.github.com/users/${data.user}`
     fetch(userUrl).then((res) => res.json().then((json) => setUserData(json)))
+  }
+
+  const backToSearch = () => {
+    setUserData('')
+    navigate('/')
   }
 
   useEffect(() => {
@@ -41,7 +46,7 @@ export function App () {
         />
         <Route
           path='user'
-          element={<UserPage userData={userData} userRepos={userRepos} />}
+          element={<UserPage backToSearch={backToSearch} userData={userData} userRepos={userRepos} />}
         />
       </Routes>
     </div>
