@@ -1,17 +1,5 @@
 import styled, { css } from 'styled-components/macro'
 
-export const H1 = styled.h1`
-  ${({ theme }) => css`
-    color: ${theme.colors.gray};
-    margin: 0;
-    text-align: center;
-    margin-top: 20px;
-    span {
-      color: ${theme.colors.primary};
-    }
-  `}
-`
-
 const TagInternal = styled.span`
   ${({ theme }) => css`
     font-size: 9px;
@@ -40,8 +28,6 @@ export const TagNav = styled.nav`
   flex-direction: row;
   width: 140px;
   overflow-x: scroll;
-
-
   ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
@@ -63,8 +49,8 @@ export const Button = styled.button`
     transition: 0.3s;
     cursor: poiter;
     :hover {
-      background: #00b5b5;
-      color: white;
+      background: ${theme.colors.ls};
+      color: ${theme.colors.white};
       transform: scale(1.05);
     }
   `}
@@ -73,14 +59,24 @@ export const Button = styled.button`
 export const Repo = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.gray_600};
-    /* background: ${theme.colors.gray_200}; */
+    background: ${theme.colors.white};
     flex-direction: column;
     border-radius: 20px;
     padding: 15px;
     width: 250px;
     min-height: 200px;
 
-    justify-content: space-around;
+    justify-content: space-between;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
   `}
+`
+
+export const HStack = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+export const VStack = styled.div`
+  display: flex;
+  flex-direction: column;
 `

@@ -4,13 +4,25 @@ import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import { App } from './App'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './resource/theme'
+import styled, { css } from 'styled-components/macro'
+
+export const Main = styled.main`
+  ${({ theme }) => css`
+  background:  ${theme.colors.bg};
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+`}
+`
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <ChakraProvider>
       <BrowserRouter>
         <CSSReset />
-        <App />
+        <Main>
+          <App />
+        </Main>
       </BrowserRouter>
     </ChakraProvider>
   </ThemeProvider>,

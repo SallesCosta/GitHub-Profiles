@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Repo, Tag, TagNav, Button } from './sytles-userPage'
-import {useState}from 'react'
+import { Repo, Tag, TagNav, Button, HStack, VStack } from './sytles-userPage'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export const UserPage = ({ userData, userRepos }) => {
   const stack = ['js', 'php', 'ts', 'py', 'ruby', 'shell']
@@ -14,7 +14,12 @@ export const UserPage = ({ userData, userRepos }) => {
       <div>quantidade de repos: {userData.public_repos}</div>
       {userRepos.map((repo) => (
         <Repo key={repo.id}>
-          <h2>{repo.name}</h2>
+          <HStack>
+            <h2>{repo.name}</h2>
+            <a href={repo.html_url} target='_blank' rel='noreferrer'>
+              <ExternalLinkIcon w={4} h={4} />
+            </a>
+          </HStack>
           <p>{repo.description ? repo.description : 'No description'}</p>
           <TagNav>
             {stack.map((i) => (
