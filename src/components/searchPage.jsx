@@ -1,5 +1,6 @@
 import { Box, Input, Button } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
+// import { Button } from ''
 
 export const SearchPage = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm()

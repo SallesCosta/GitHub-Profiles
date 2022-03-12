@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import { SearchPage } from './components/search/searchPage'
-import { UserPage } from './components/user/userPage'
+import { SearchPage } from './components/searchPage'
+import { UserPage } from './components/userPage'
 import React, { useEffect, useState } from 'react'
 
 export function App() {

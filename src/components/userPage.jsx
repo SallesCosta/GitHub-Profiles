@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom'
 import { AiFillGithub } from 'react-icons/ai'
-import { Icon, Center, Flex } from '@chakra-ui/react'
+import { Icon } from '@chakra-ui/react'
 import {
   Content,
   RepoHeader,
   VStack,
   ThisRepo,
   Grid,
+  UserTag,
   Repo,
   Tag,
   Button,
   HStack,
   UserSection,
-} from './sytles-userPage'
+} from './styles'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export const UserPage = ({ userData, userRepos, backToSearch }) => {
@@ -28,6 +28,19 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
             <p>Name: {userData.login}</p>
             <p>Total number of repositories: {userData.public_repos}</p>
           </>
+          <a
+            href='https://github.com/SallesCosta/gh-ch-ls'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <ThisRepo>
+              <VStack>
+                <h3>Does this project</h3>
+                <h3>deserve a star?</h3>
+                <Icon as={AiFillGithub} />
+              </VStack>
+            </ThisRepo>
+          </a>
         </UserSection>
         <Grid>
           {userRepos.map((repo) => {
@@ -42,22 +55,10 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
                 </RepoHeader>
                 <p>{repo.description ? repo.description : 'No description'}</p>
                 <Tag tagName={stack} />
+                <UserTag tagName={stack} />
               </Repo>
             )
           })}
-          <a
-            href='https://github.com/SallesCosta/gh-ch-ls'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <ThisRepo>
-              <VStack>
-                <h3>Does this project</h3>
-                <h3>deserve a star?</h3>
-                <Icon as={AiFillGithub} />
-              </VStack>
-            </ThisRepo>
-          </a>
         </Grid>
       </HStack>
     </Content>

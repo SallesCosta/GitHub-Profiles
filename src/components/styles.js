@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components/macro'
+import { theme as T } from '../resource/theme'
+import { User } from '../resource/theme'
 
 export const Content = styled.div`
-  /* background: red; */
   width: 1100px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  /* padding: 3px; */
 `
 
 export const Grid = styled.div`
@@ -20,29 +20,35 @@ const TagInternal = styled.span`
   ${({ theme }) => css`
     font-size: 9px;
     padding: 1px 10px;
-    color: ${theme.colors.gray_600};
-    background: ${theme.colors.gray_200};
-    border: 1.3px solid ${theme.colors.gray_600};
+    color: ${(props) => props.border || 'palevioletred'};
+    background: ${(props) => props.bg || 'palevioletred'};
+    border: 1.6px solid ${(props) => props.border || 'palevioletred'};
     border-radius: 5px;
   `}
 `
 
-export const Tag = ({ tagName }) => {
-  return <TagInternal>{tagName ? tagName : 'No language'}</TagInternal>
+export const Tag = ({tagName}) => {
+  const bg = T.colors.TypeScript.bg
+  const border = T.colors.TypeScript.border
+  return (
+    <TagInternal bg={bg} border={border}>
+      {tagName || 'No language'}
+    </TagInternal>
+  )
 }
 
-export const TagNav = styled.nav`
-  border: 1px solid black;
-  justify-content: space-between;
-  height: 45px;
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-`
+export const UserTag = ({tagName}) => {
+  // const bg = User.colors.user1.bg
+  // const border = User.colors.user1.border
+
+  const bg = `User.colors.${tagName}.bg`
+  const border = `User.colors.${tagName}.border`
+  return (
+    <TagInternal bg={bg} border={border}>
+      {tagName || 'No User'}
+    </TagInternal>
+  )
+}
 
 export const Button = styled.button`
   ${({ theme }) => css`
@@ -117,7 +123,7 @@ export const UserSection = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height: 400px;
+    max-height:700px;
     img {
       width: 280px;
     }
@@ -128,13 +134,8 @@ export const ThisRepo = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.gray_600};
     background: ${theme.colors.white};
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
-    aligne-items: center;
-    /* text-aligne: center; */
     border-radius: 20px;
     padding: 15px;
-    width: 250px;
     min-height: 200px;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
     :hover {
@@ -146,7 +147,6 @@ export const ThisRepo = styled.div`
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
- 
   }
   svg {
     margin-left: auto;
@@ -154,6 +154,5 @@ export const ThisRepo = styled.div`
     margin-top: 15px;
     width: 55px;
     height: 55px;
-
   }
 `
