@@ -55,7 +55,7 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
                 </RepoHeader>
                 <p>{repo.description ? repo.description : 'No description'}</p>
                 <Tag tagName={stack} />
-                <UserTag tagName={stack} />
+                {/* <UserTag tagName={stack} /> */}
               </Repo>
             )
           })}

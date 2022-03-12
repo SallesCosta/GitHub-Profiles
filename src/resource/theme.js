@@ -27,8 +27,10 @@ export const theme = {
     green_600: '#2F855A',
     teal_200: '#81E6D9',
     teal_600: '#2C7A7B',
-    gray_200: '#E2E8F0',
-    gray_600: '#4A5568',
+    noLanguage: {
+      bg: '#E2E8F0',
+      border: '#4A5568',
+    },
     red_200: '#FEB2B2',
     red_600: '#C53030',
     purple_200: '#D6BCFA',

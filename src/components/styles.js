@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components/macro'
-import { theme as T } from '../resource/theme'
-import { User } from '../resource/theme'
+import { theme as T, User } from '../resource/theme'
 
 export const Content = styled.div`
   width: 1100px;
@@ -27,27 +26,24 @@ const TagInternal = styled.span`
   `}
 `
 
-export const Tag = ({tagName}) => {
-  const bg = T.colors.TypeScript.bg
-  const border = T.colors.TypeScript.border
-  return (
-    <TagInternal bg={bg} border={border}>
-      {tagName || 'No language'}
-    </TagInternal>
-  )
-}
-
-export const UserTag = ({tagName}) => {
-  // const bg = User.colors.user1.bg
-  // const border = User.colors.user1.border
-
-  const bg = `User.colors.${tagName}.bg`
-  const border = `User.colors.${tagName}.border`
-  return (
-    <TagInternal bg={bg} border={border}>
-      {tagName || 'No User'}
-    </TagInternal>
-  )
+export const Tag = ({ tagName }) => {
+  if (tagName === null) {
+    const bg = T.colors.noLanguage.bg
+    const border = T.colors.noLanguage.border
+    return (
+      <TagInternal bg={bg} border={border}>
+        No Language
+      </TagInternal>
+    )
+  } else {
+    const bg = T.colors[tagName].bg
+    const border = T.colors[tagName].border
+    return (
+      <TagInternal bg={bg} border={border}>
+        {tagName}
+      </TagInternal>
+    )
+  }
 }
 
 export const Button = styled.button`
@@ -123,7 +119,7 @@ export const UserSection = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height:700px;
+    max-height: 700px;
     img {
       width: 280px;
     }

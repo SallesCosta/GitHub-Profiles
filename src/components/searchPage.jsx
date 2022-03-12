@@ -1,6 +1,6 @@
-import { Box, Input, Button } from '@chakra-ui/react'
+import { Box, Input } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
-// import { Button } from ''
+import { Button } from './styles'
 
 export const SearchPage = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm()
@@ -11,11 +11,12 @@ export const SearchPage = ({ onSubmit }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input label='User' {...register('user')} />
         <Button
-          colorScheme='green'
-          size='md'
-          variant='outline'
-          mr='-px'
-          type='submit'
+          primary
+          // colorScheme='green'
+          // size='md'
+          // variant='outline'
+          // mr='-px'
+          // type='submit'
         >
           Send
         </Button>
