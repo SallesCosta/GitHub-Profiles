@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { SearchPage } from './components/searchPage'
 import { UserPage } from './components/userPage'
 import React, { useEffect, useState } from 'react'
+import { Box, Heading, Center } from '@chakra-ui/react'
 
 export function App() {
   const [userData, setUserData] = useState('')
@@ -29,8 +30,12 @@ export function App() {
   }, [navigate, userData])
 
   return (
-    <div className='App'>
-      <h1>GitHub profiles</h1>
+    <>
+      <Center>
+        <Box h='5vh' fontSize='2rem'>
+          GitHub profiles
+        </Box>
+      </Center>
       <Routes>
         <Route
           path='/'
@@ -46,9 +51,15 @@ export function App() {
         />
         <Route
           path='user'
-          element={<UserPage backToSearch={backToSearch} userData={userData} userRepos={userRepos} />}
+          element={
+            <UserPage
+              backToSearch={backToSearch}
+              userData={userData}
+              userRepos={userRepos}
+            />
+          }
         />
       </Routes>
-    </div>
+    </>
   )
 }

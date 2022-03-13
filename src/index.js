@@ -11,7 +11,7 @@ export const Main = styled.main`
   background:  ${theme.colors.bg};
   width: 100%;
   height: auto;
-  padding: 2rem;
+  /* padding: 2rem; */
 `}
 `
 
