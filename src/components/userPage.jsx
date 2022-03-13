@@ -47,7 +47,7 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
           {userRepos.map((repo) => {
             const stack = repo.language
             return (
-              <Repo key={repo.id}>
+              <Repo key={repo.id} id='repos'>
                 <RepoHeader>
                   <h3>{repo.name}</h3>
                   <a href={repo.html_url} target='_blank' rel='noreferrer'>
