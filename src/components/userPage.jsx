@@ -1,3 +1,4 @@
+import { theme as T } from '../resource/theme'
 import { AiFillGithub } from 'react-icons/ai'
 import { Icon } from '@chakra-ui/react'
 import {
@@ -6,9 +7,9 @@ import {
   VStack,
   ThisRepo,
   Grid,
-  UserTag,
   Repo,
-  Tag,
+  // Tag,
+  TagInternal,
   Button,
   HStack,
   UserSection,
@@ -24,10 +25,10 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
             back to Search Page
           </Button>
           <img alt='user pic' src={userData.avatar_url} />
-          <>
+          <VStack>
             <p>Name: {userData.name}</p>
             <p>Total number of repositories: {userData.public_repos}</p>
-          </>
+          </VStack>
           <a
             href='https://github.com/SallesCosta/gh-ch-ls'
             target='_blank'
@@ -45,7 +46,6 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
         <Grid>
           {userRepos.map((repo) => {
             const stack = repo.language
-            // console.log(stack)
             return (
               <Repo key={repo.id}>
                 <RepoHeader>
@@ -63,4 +63,37 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
       </HStack>
     </Content>
   )
+}
+
+const FoundStack = ({ tagName }) => {
+  const bg = T.colors[tagName].bg
+  const border = T.colors[tagName].border
+  return (
+    <TagInternal bg={bg} border={border}>
+      {tagName}
+    </TagInternal>
+  )
+}
+
+const NotFoundStack = () => {
+  const bg = T.colors.noLanguage.bg
+  const border = T.colors.noLanguage.border
+  return (
+    <TagInternal bg={bg} border={border}>
+      sorry 👎🏻
+    </TagInternal>
+  )
+}
+
+export const Tag = ({ tagName }) => {
+  if (tagName === null) {
+    return <NotFoundStack />
+  } else {
+    const match = T.colors[tagName]
+    if (match) {
+      return <FoundStack tagName={tagName} />
+    } else {
+      return <NotFoundStack />
+    }
+  }
 }

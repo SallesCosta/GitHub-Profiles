@@ -2,7 +2,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { SearchPage } from './components/searchPage'
 import { UserPage } from './components/userPage'
 import React, { useEffect, useState } from 'react'
-import { Box, Heading, Center } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
+import { Header } from './components/styles'
 
 export function App() {
   const [userData, setUserData] = useState('')
@@ -31,21 +32,16 @@ export function App() {
 
   return (
     <>
-      <Center>
-        <Box h='5vh' fontSize='2rem'>
-          GitHub profiles
-        </Box>
-      </Center>
+      <Header>
+        GitHub profiles
+      </Header>
       <Routes>
         <Route
           path='/'
           element={
             <SearchPage
-              userData={userData}
               onSubmit={onSubmit}
-              userRepos={userRepos}
               setUserData={setUserData}
-              setUserRepos={setUserRepos}
             />
           }
         />

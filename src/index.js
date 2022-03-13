@@ -8,23 +8,23 @@ import styled, { css } from 'styled-components/macro'
 
 export const Main = styled.main`
   ${({ theme }) => css`
-  background:  ${theme.colors.bg};
-  width: 100%;
-  height: auto;
-  /* padding: 2rem; */
-`}
+    background: ${theme.colors.bg};
+    width: 100%;
+    height: auto;
+    padding-bottom: 2rem;
+  `}
 `
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <ChakraProvider>
+  <ChakraProvider>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <CSSReset />
         <Main>
           <App />
         </Main>
       </BrowserRouter>
-    </ChakraProvider>
-  </ThemeProvider>,
+    </ThemeProvider>
+  </ChakraProvider>,
   document.getElementById('root'),
 )

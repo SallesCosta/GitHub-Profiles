@@ -17,9 +17,9 @@ import { CopyIcon } from '@chakra-ui/icons'
 export const SearchPage = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm()
   const toast = useToast()
-  const sugs = ['Sallescosta', 'userB', 'userC', 'userD', 'userE', 'userF']
+  const sugs = ['sallescosta', 'luanpanno', 'gaearon', 'ashulin', 'craftzdog', 'benfrain']
   return (
-    <Container h='95vh'>
+    <Container h='93vh'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex mt='20px'>
           <Input
@@ -33,7 +33,7 @@ export const SearchPage = ({ onSubmit }) => {
       </form>
       <Box mt='30px'>
         <VStack>
-          <Heading fontSize='1.3rem '>Sugestions to try</Heading>
+          <Heading color='gray.600' fontSize='1.3rem '>Sugestions to try</Heading>
           {sugs.map((i, index) => (
             <HStack key={index}>
               <CopyToClipboard text={i}>
@@ -51,7 +51,6 @@ export const SearchPage = ({ onSubmit }) => {
                     <CopyIcon w={3} h={3} />
                   </HStack>
                 </Button>
-                {/* <button>Copy to clipboard</button> */}
               </CopyToClipboard>
             </HStack>
           ))}

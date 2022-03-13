@@ -1,11 +1,21 @@
 import styled, { css } from 'styled-components/macro'
-import { theme as T } from '../resource/theme'
 
 export const Content = styled.div`
   width: 1100px;
+  min-height: 93vh;
   height: auto;
   margin-left: auto;
   margin-right: auto;
+`
+
+export const Header = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray_600};
+    height: 7vh;
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+  `}
 `
 
 export const Grid = styled.div`
@@ -15,7 +25,7 @@ export const Grid = styled.div`
   grid-gap: 1em;
 `
 
-const TagInternal = styled.span`
+export const TagInternal = styled.span`
   ${({ theme }) => css`
     font-size: 9px;
     padding: 1px 10px;
@@ -25,44 +35,27 @@ const TagInternal = styled.span`
     border-radius: 5px;
   `}
 `
-
-export const Tag = ({ tagName }) => {
-  if (tagName === null) {
-    const bg = T.colors.noLanguage.bg
-    const border = T.colors.noLanguage.border
-    return (
-      <TagInternal bg={bg} border={border}>
-       Other or more than 3 
-      </TagInternal>
-    )
-  } else {
-    const bg = T.colors[tagName].bg
-    const border = T.colors[tagName].border
-    return (
-      <TagInternal bg={bg} border={border}>
-        {tagName}
-      </TagInternal>
-    )
-  }
-}
-
 export const Button = styled.button`
   ${({ theme }) => css`
-    background: ${(props) =>
-      props.primary ? `${theme.colors.white}` : `${theme.colors.orange_200}`};
+    background: ${theme.colors.white};
     color: ${(props) =>
-      props.primary ? `${theme.colors.ls}` : `${theme.colors.orange_600}`};
-    border: 1px solid
+      props.primary ? `${theme.colors.ls}` : `${theme.colors.gray_600}`};
+    border: 1.2px solid
       ${(props) =>
-        props.primary ? `${theme.colors.ls}` : `${theme.colors.orange_600}`};
+        props.primary ? `${theme.colors.ls}` : `${theme.colors.gray_600}`};
     font-size: 16px;
     padding: 5px 15px;
     border-radius: 15px;
     transition: 0.3s;
     cursor: poiter;
     :hover {
-      background: ${theme.colors.ls};
-      color: ${theme.colors.white};
+      background: ${(props) =>
+        props.primary ? `${theme.colors.ls}` : `${theme.colors.orange_200}`};
+      color: ${(props) =>
+        props.primary ? `${theme.colors.white}` : `${theme.colors.orange_600}`};
+      border: 1.2px solid
+        ${(props) =>
+          props.primary ? `${theme.colors.ls}` : `${theme.colors.orange_600}`};
       transform: scale(1.03);
     }
   `}
@@ -120,7 +113,7 @@ export const UserSection = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height: 700px;
+    max-height: 600px;
     img {
       width: 280px;
     }
