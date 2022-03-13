@@ -6,6 +6,7 @@ export const Content = styled.div`
   height: auto;
   margin-left: auto;
   margin-right: auto;
+    padding-bottom: 2rem;
 `
 
 export const Header = styled.div`

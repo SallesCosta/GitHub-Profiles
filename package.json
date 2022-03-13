@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "react-scripts start",
+    "cypress:open": "cypress open",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext js,jsx",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "test:e2e":"start-server-and-test dev 3000 cypress:open"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
@@ -56,8 +58,10 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^9.5.1",
     "eslint": "^8.10.0",
     "eslint-plugin-react": "7.29.3",
-    "prettier": "2.5.1"
+    "prettier": "2.5.1",
+    "start-server-and-test": "^1.14.0"
   }
 }

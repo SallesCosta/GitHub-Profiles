@@ -24,11 +24,12 @@ export const SearchPage = ({ onSubmit }) => {
         <Flex mt='20px'>
           <Input
             mr='10px'
+            type='search'
             label='User'
             {...register('user', { required: true, minLength: 3 })}
             bg='white'
           />
-          <Button primary>Send</Button>
+          <Button data-testid="search-form" primary>Send</Button>
         </Flex>
       </form>
       <Box mt='30px'>
