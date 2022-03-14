@@ -1,4 +1,5 @@
 import {
+  Tooltip,
   Text,
   Heading,
   Box,
@@ -13,11 +14,28 @@ import { useForm } from 'react-hook-form'
 import { Button } from './styles'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CopyIcon } from '@chakra-ui/icons'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 export const SearchPage = ({ onSubmit }) => {
-  const { register, handleSubmit } = useForm()
   const toast = useToast()
-  const sugs = ['sallescosta', 'luanpanno', 'gaearon', 'ashulin', 'craftzdog', 'benfrain']
+  const sugs = ['luanpanno', 'gaearon', 'ashulin', 'craftzdog', 'benfrain']
+
+  const sugsOne = ['k', 'x', 'f']
+
+  const schema = yup
+    .object({
+      user: yup.string().required(),
+    })
+    .required()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
   return (
     <Container h='93vh'>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -26,15 +44,20 @@ export const SearchPage = ({ onSubmit }) => {
             mr='10px'
             type='search'
             label='User'
-            {...register('user', { required: true, minLength: 3 })}
+            {...register('user', { required: true })}
             bg='white'
           />
-          <Button data-testid="search-form" primary>Send</Button>
+          <Button data-testid='search-form' primary>
+            Send
+          </Button>
         </Flex>
       </form>
+      <Text color='tomato'>{errors.user?.message}</Text>
       <Box mt='30px'>
         <VStack>
-          <Heading color='gray.600' fontSize='1.3rem '>Sugestions to try</Heading>
+          <Heading color='gray.600' fontSize='1.3rem '>
+            Sugestions to try
+          </Heading>
           {sugs.map((i, index) => (
             <HStack key={index}>
               <CopyToClipboard text={i}>
@@ -44,8 +67,7 @@ export const SearchPage = ({ onSubmit }) => {
                       title: `Copied ${i}`,
                       variant: 'subtle',
                       isClosable: true,
-                    })
-                  }
+                    })}
                 >
                   <HStack>
                     <Text>{i}</Text>
@@ -54,6 +76,27 @@ export const SearchPage = ({ onSubmit }) => {
                 </Button>
               </CopyToClipboard>
             </HStack>
+          ))}
+          {sugsOne.map((i, index) => (
+            <Tooltip key={index} label='Wow, length = 1!'>
+              <HStack>
+                <CopyToClipboard text={i}>
+                  <Button
+                    onClick={() =>
+                      toast({
+                        title: `Copied ${i}`,
+                        variant: 'subtle',
+                        isClosable: true,
+                      })}
+                  >
+                    <HStack>
+                      <Text>{i}</Text>
+                      <CopyIcon w={3} h={3} />
+                    </HStack>
+                  </Button>
+                </CopyToClipboard>
+              </HStack>
+            </Tooltip>
           ))}
         </VStack>
       </Box>
