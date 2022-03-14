@@ -1,72 +1,46 @@
-# Getting Started with Create React App
+# GitHub Profiles
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How can I start the project?
 
-libs usadas
-React Router Dom   yarn add react-router-dom@6
-## Available Scripts
+it's not difficult. Follow the steps:
 
-In the project directory, you can run:
+You need to clone this repository,
 
-### `yarn start`
+```
+$ git clone https://github.com/SallesCosta/gh-ch-ls.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Being inside the directory, you can run:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> `yarn`
 
-### `yarn test`
+and wait. It may take a few seconds.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run
 
-### `yarn build`
+> `yarn dev`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+and go to [localhost](http://localhost:3000) and voil‡!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In this project we can find Github users and their repositories with some information.
+There's not all the data from the repository, but we have the link to it.
+Just enter the name in the input, if there is a user with that name we will be redirected to the UserPage.
+In UserPage there is a 'back to SearchPage' button.
+For each repository we can see the main language used in this project that the [Github API](https://api.github.com)provides to us.
+I registered some different languages and assigned colors to each one. Background and border.
+The color chosen on the border will also be used for the 'color' attribute.
+If the repository has no specified language, the following tag will be displayed:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This is very common.
+This same tag will be displayed if the repository contains a language that is not registered.
+Please PullRequest to expand this list of languages colored dynamically.
 
-### `yarn eject`
+#Testing
+####E2E | Cypress
+How:
+On terminal run cypress:open. It will open the Cypress with the tests I did. So it’s a good opportunity of PR again. Feel free to.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Any questions? Any suggestions? We can talk about.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for reading up to this point.
+#Opensource

@@ -24,7 +24,7 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
           <Button primary onClick={backToSearch}>
             back to Search Page
           </Button>
-          <img alt='user pic' src={userData.avatar_url} />
+          <img decoding='async' alt='user pic' src={userData.avatar_url} />
           <VStack>
             <p>Name: {userData.name}</p>
             <p>Total number of repositories: {userData.public_repos}</p>
