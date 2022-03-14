@@ -22,7 +22,7 @@ run
 
 go to [localhost](http://localhost:3000) and voilà!
 
-> In this project we can find Github users and their repositories with some information.
+  In this project we can find Github users and their repositories with some information.
 There's not all the data from the repository, but we have the link to it.
 Just enter the name in the input, if there is a user with that name we will be redirected to the UserPage.
 In UserPage there is a 'back to SearchPage' button.
@@ -31,16 +31,20 @@ I registered some different languages and assigned colors to each one. Backgroun
 The color chosen on the border will also be used for the 'color' attribute.
 If the repository has no specified language, the following tag will be displayed:
 
-This is very common.
+<img src='./src/images/Screenshot 2022-03-14 at 20.09.17.png'/>
+
+> This is very common.
+
 This same tag will be displayed if the repository contains a language that is not registered.
-Please PullRequest to expand this list of languages colored dynamically.
+Please Pull Request to expand this list of languages colored dynamically.
 
 # Testing
 
-#### E2E | Cypress
+### E2E | Cypress
 
-How:
-On terminal run cypress:open. It will open the Cypress with the tests I did. So it's a good opportunity for PR again. Feel free to.
+#### How:
+
+On terminal run `yarn test:e2e`. It will open the Cypress with the tests I did. So it's a good opportunity for PR again. Feel free to.
 
 Any questions? Any suggestions? We can talk about.
 
