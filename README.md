@@ -16,17 +16,17 @@ Being inside the directory, you can run:
 
 and wait. It may take a few seconds.
 
-Run
+run
 
 > `yarn dev`
 
-and go to [localhost](http://localhost:3000) and voil‡!
+go to [localhost](http://localhost:3000) and voil‡!
 
-In this project we can find Github users and their repositories with some information.
+> In this project we can find Github users and their repositories with some information.
 There's not all the data from the repository, but we have the link to it.
 Just enter the name in the input, if there is a user with that name we will be redirected to the UserPage.
 In UserPage there is a 'back to SearchPage' button.
-For each repository we can see the main language used in this project that the [Github API](https://api.github.com)provides to us.
+For each repository we can see the main language used in this project that the [Github API](https://api.github.com) provides to us.
 I registered some different languages and assigned colors to each one. Background and border.
 The color chosen on the border will also be used for the 'color' attribute.
 If the repository has no specified language, the following tag will be displayed:
@@ -35,12 +35,15 @@ This is very common.
 This same tag will be displayed if the repository contains a language that is not registered.
 Please PullRequest to expand this list of languages colored dynamically.
 
-#Testing
-####E2E | Cypress
+# Testing
+
+#### E2E | Cypress
+
 How:
-On terminal run cypress:open. It will open the Cypress with the tests I did. So it’s a good opportunity of PR again. Feel free to.
+On terminal run cypress:open. It will open the Cypress with the tests I did. So it's a good opportunity for PR again. Feel free to.
 
 Any questions? Any suggestions? We can talk about.
 
 Thank you for reading up to this point.
-#Opensource
+
+### #Opensource
