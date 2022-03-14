@@ -10,17 +10,8 @@ You need to clone this repository,
 $ git clone https://github.com/SallesCosta/gh-ch-ls.git
 ```
 
-Being inside the directory, you can run:
-
-> `yarn`
-
-and wait. It may take a few seconds.
-
-run
-
-> `yarn dev`
-
-go to [localhost](http://localhost:3000) and voilà!
+Being inside the directory, you can run `yarn`
+and wait. It may take a few seconds. Run `yarn dev` then go to [localhost](http://localhost:3000) and voilà!
 
   In this project we can find Github users and their repositories with some information.
 There's not all the data from the repository, but we have the link to it.
@@ -29,9 +20,12 @@ In UserPage there is a 'back to SearchPage' button.
 For each repository we can see the main language used in this project that the [Github API](https://api.github.com) provides to us.
 I registered some different languages and assigned colors to each one. Background and border.
 The color chosen on the border will also be used for the 'color' attribute.
+
+<img src='./src/images/2.png'/>
+
 If the repository has no specified language, the following tag will be displayed:
 
-<img src='./src/images/Screenshot 2022-03-14 at 20.09.17.png'/>
+<img src='./src/images/1.png'/>
 
 > This is very common.
 
