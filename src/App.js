@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { Box, Heading } from '@chakra-ui/react'
 import { Header } from './components/styles'
 
-export function App() {
+export function App () {
   const [userData, setUserData] = useState('')
   const [userRepos, setUserRepos] = useState([])
 

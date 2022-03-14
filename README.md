@@ -36,7 +36,7 @@ Please Pull Request to expand this list of languages colored dynamically.
 
 ### E2E | Cypress
 
-#### How:
+#### How?
 
 On terminal run `yarn test:e2e`. It will open the Cypress with the tests I did. So it's a good opportunity for PR again. Feel free to.
 
