@@ -1,12 +1,22 @@
 import styled, { css } from 'styled-components/macro'
 
 export const Content = styled.div`
-  width: 1100px;
+  width: 1200px;
   min-height: 93vh;
   height: auto;
   margin-left: auto;
   margin-right: auto;
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  @media (max-width: 1215px) {
+    width: 800px;
+  }
+
+  @media (max-width: 1030px) {
+    width: 600px;
+  }
 `
 
 export const Header = styled.div`
@@ -20,10 +30,29 @@ export const Header = styled.div`
 `
 
 export const Grid = styled.div`
+  width: 90%;
+  max-width: 815px;
+  margin-left: 2rem;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   grid-template-rows: repeat(auto, 1fr);
-  grid-gap: 1em;
+  grid-gap: 2rem;
+
+  @media (max-width: 1215px) {
+    width: 972px;
+    grid-template-columns: repeat(2, minmax(250px, 2fr));
+    grid-template-rows: repeat(auto, 1fr);
+    grid-gap: 2rem;
+  }
+  @media (max-width: 1030px) {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(250px, 2fr));
+    grid-template-rows: repeat(auto, 1fr);
+    grid-gap: 2rem;
+    margin-left: 0;
+    margin-top: 2rem;
+  }
 `
 
 export const TagInternal = styled.span`
@@ -93,6 +122,10 @@ export const HStack = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 1030px) {
+    flex-direction: column;
+  }
 `
 
 export const VStack = styled.div`
@@ -100,6 +133,15 @@ export const VStack = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `
+
+export const UserInfos = styled(VStack)`
+  @media (max-width: 1030px) {
+    width: 500px;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+`
+
 export const RepoHeader = styled.div`
   display: flex;
   flex-direction: row;
@@ -112,22 +154,34 @@ export const UserSection = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.gray_600};
     display: flex;
+    min-width: 280px;
     flex-direction: column;
     justify-content: space-between;
-    max-height: 600px;
+    height: 600px;
     img {
       width: 280px;
+    }
+    @media (max-width: 1030px) {
+      width: 100%;
+      justify-content: space-between;
+        height: 500px;
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   `}
 `
 
-export const ThisRepo = styled.div`
+export const ThisRepo = styled(VStack)`
   ${({ theme }) => css`
     color: ${theme.colors.gray_600};
     background: ${theme.colors.white};
+    justify-content: center;
     border-radius: 20px;
     padding: 15px;
     min-height: 200px;
+    width: 250px;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
     :hover {
       transform: scale(1.03);
@@ -136,14 +190,25 @@ export const ThisRepo = styled.div`
   h3 {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 37px;
   }
   svg {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
     width: 55px;
     height: 55px;
+  }
+  @media (max-width: 1030px) {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 50px;
+    height: 80px;
+    h3 { 
+      margin-top: 10px;
+    }
+      svg {
+      margin-botton: 37px;
+    }
   }
 `
