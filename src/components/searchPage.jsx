@@ -62,6 +62,7 @@ export const SearchPage = ({ onSubmit }) => {
             <HStack key={index}>
               <CopyToClipboard text={i}>
                 <Button
+                id={i}
                   onClick={() =>
                     toast({
                       title: `Copied ${i}`,
@@ -82,6 +83,8 @@ export const SearchPage = ({ onSubmit }) => {
               <HStack>
                 <CopyToClipboard text={i}>
                   <Button
+                id={i}
+
                     onClick={() =>
                       toast({
                         title: `Copied ${i}`,
