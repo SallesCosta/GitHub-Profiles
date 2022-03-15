@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Text, Center } from '@chakra-ui/react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { SearchPage } from './components/searchPage'
 import { UserPage } from './components/userPage'
@@ -7,16 +8,10 @@ import { Header } from './components/styles'
 const get = (url) => {
   return fetch(url, {
     headers: {
-      authorization: 'token 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',
+      authorization: process.env.GH,
       accept: 'application/vnd.github.v3+json',
-      // aumento do limite de requests.. more than 60x
     },
   })
-}
-
-const debug = (value) => {
-  console.log(value)
-  return value
 }
 
 export function App () {
@@ -33,8 +28,10 @@ export function App () {
         if (res.ok) return res.json()
         return Promise.reject()
       })
-      .then(debug)
-      .then((json) => setUserData(json))
+      .then((json) => {
+        setUserData(json)
+        setErro(false)
+      })
       .catch(() => setErro(true))
   }
 
@@ -49,17 +46,9 @@ export function App () {
     function getReposData () {
       if (!userData) {
         return
-        // setar um estado boolean que renderiza uma mensagem dizendo que não foi encontrado o usuario
       }
       const toRepo = userData.repos_url
       get(toRepo)
-        // .then((res) => {
-        //   // console.log(res.headers.entries().next())
-        //   for (const header of res.headers.entries()) {
-        //     console.log(header)
-        //   }
-        //   return res
-        // })
         .then((res) => res.json())
         .then((json) => setUserRepos(json))
     }
@@ -67,14 +56,19 @@ export function App () {
   }, [userData])
 
   useEffect(() => {
-    console.log(userRepos)
     navigate(userRepos === null ? '/' : '/user')
   }, [navigate, userRepos])
 
   return (
     <>
       <Header>GitHub profiles</Header>
-      {erro && <div>not found</div>}
+      {erro && (
+        <Center>
+          <Text fontWeight='Bold' color='tomato'>
+            not found, try an other
+          </Text>
+        </Center>
+      )}
       <Routes>
         <Route
           path='/'

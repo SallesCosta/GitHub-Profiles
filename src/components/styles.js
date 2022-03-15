@@ -85,7 +85,7 @@ export const Repo = styled.div`
   p {
     font-size: 0.9rem;
     overflow: hidden;
-    height: 115px;
+    height: 112px;
   }
 `
 
