@@ -7,9 +7,8 @@ import { Header } from './components/styles'
 const get = (url) => {
   return fetch(url, {
     headers: {
-      authorization: 'token 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',
+      authorization: process.env.GITHUBAUTH,
       accept: 'application/vnd.github.v3+json',
-      // aumento do limite de requests.. more than 60x
     },
   })
 }
@@ -33,7 +32,7 @@ export function App () {
         if (res.ok) return res.json()
         return Promise.reject()
       })
-      .then(debug)
+      // .then(debug)
       .then((json) => setUserData(json))
       .catch(() => setErro(true))
   }
@@ -67,7 +66,6 @@ export function App () {
   }, [userData])
 
   useEffect(() => {
-    console.log(userRepos)
     navigate(userRepos === null ? '/' : '/user')
   }, [navigate, userRepos])
 
