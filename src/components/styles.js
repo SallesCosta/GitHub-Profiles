@@ -22,7 +22,7 @@ export const Content = styled.div`
 export const Header = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.gray_600};
-    height: 7vh;
+    height: 70px;
     font-size: 2rem;
     display: grid;
     place-items: center;

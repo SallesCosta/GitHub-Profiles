@@ -4,18 +4,20 @@
 
 it's not difficult. Follow the steps:
 
-You need to clone this repository,
+1. Clone this repository,
 
 ```
 $ git clone https://github.com/SallesCosta/gh-ch-ls.git
 ```
 
-Being inside the directory, you can run `yarn`
-and wait. It may take a few seconds. Run `yarn dev` then go to [localhost](http://localhost:3000) and voilà!
+2. Once inside the directory, you can run `yarn`
+and wait a few seconds until the project dependencies are installed.
+
+3. Then run `yarn dev` then go to [localhost](http://localhost:3000) and voilà!
 
   In this project we can find Github users and their repositories with some information.
-There's not all the data from the repository, but we have the link to it.
-Just enter the name in the input, if there is a user with that name we will be redirected to the UserPage.
+Not all data from the repositories may be available, but we have the link to them.
+You only have to write the name in the input-text, if there is a user with that name you will be redirected to the UserPage.
 In UserPage there is a 'back to SearchPage' button.
 For each repository we can see the main language used in this project that the [Github API](https://api.github.com) provides to us.
 I registered some different languages and assigned colors to each one. Background and border.
