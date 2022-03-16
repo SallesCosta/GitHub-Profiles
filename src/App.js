@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import localforage from 'localforage'
 import { Text, Center } from '@chakra-ui/react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { SearchPage } from './components/searchPage'
@@ -20,6 +21,22 @@ export function App () {
   const [erro, setErro] = useState(false)
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    localforage.setItem('GitHub Profiles', userData)
+  }, [userData])
+
+  useEffect(() => {
+    async function getFromStorage () {
+      const user = await localforage.getItem('GitHub Profiles')
+
+      if (user) {
+        setUserData(user)
+      }
+    }
+
+    getFromStorage()
+  }, [])
 
   const onSubmit = (data) => {
     const userUrl = `https://api.github.com/users/${data.user}`
