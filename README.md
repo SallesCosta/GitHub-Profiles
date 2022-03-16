@@ -1,5 +1,7 @@
 # GitHub Profiles
 
+> deployed with Netlify. Click [here](https://escapps-github.netlify.app)
+
 ## How can I start the project?
 
 it's not difficult. Follow the steps:
