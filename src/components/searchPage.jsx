@@ -7,6 +7,7 @@ import {
   Container,
   Flex,
   HStack,
+  Center,
   VStack,
   useToast,
 } from '@chakra-ui/react'
@@ -47,12 +48,14 @@ export const SearchPage = ({ onSubmit }) => {
             {...register('user', { required: true })}
             bg='white'
           />
-          <Button data-testid='search-form' primary>
+          <Button id='submit' primary>
             Send
           </Button>
         </Flex>
       </form>
-      <Text color='tomato'>{errors.user?.message}</Text>
+      <Center>
+        <Text fontWeight='Bold' color='tomato'>{errors.user?.message}</Text>
+      </Center>
       <Box mt='30px'>
         <VStack>
           <Heading color='gray.600' fontSize='1.3rem '>
@@ -62,13 +65,14 @@ export const SearchPage = ({ onSubmit }) => {
             <HStack key={index}>
               <CopyToClipboard text={i}>
                 <Button
-                id={i}
+                  id={i}
                   onClick={() =>
                     toast({
                       title: `Copied ${i}`,
                       variant: 'subtle',
                       isClosable: true,
-                    })}
+                    })
+                  }
                 >
                   <HStack>
                     <Text>{i}</Text>
@@ -79,18 +83,18 @@ export const SearchPage = ({ onSubmit }) => {
             </HStack>
           ))}
           {sugsOne.map((i, index) => (
-            <Tooltip key={index} label='Wow, length = 1!'>
+            <Tooltip placement='right' key={index} label='Wow, length = 1!'>
               <HStack>
                 <CopyToClipboard text={i}>
                   <Button
-                id={i}
-
+                    id={i}
                     onClick={() =>
                       toast({
                         title: `Copied ${i}`,
                         variant: 'subtle',
                         isClosable: true,
-                      })}
+                      })
+                    }
                   >
                     <HStack>
                       <Text>{i}</Text>

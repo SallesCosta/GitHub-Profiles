@@ -5,12 +5,14 @@ import {
   Content,
   RepoHeader,
   VStack,
+  UserInfos,
   ThisRepo,
   Grid,
   Repo,
   // Tag,
   TagInternal,
   Button,
+  Wrap,
   HStack,
   UserSection,
 } from './styles'
@@ -25,10 +27,10 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
             back to Search Page
           </Button>
           <img decoding='async' alt='user pic' src={userData.avatar_url} />
-          <VStack>
+          <UserInfos>
             <p>Name: {userData.name}</p>
             <p>Total number of repositories: {userData.public_repos}</p>
-          </VStack>
+          </UserInfos>
           <a
             href='https://github.com/SallesCosta/gh-ch-ls'
             target='_blank'
@@ -36,10 +38,9 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
           >
             <ThisRepo>
               <VStack>
-                <h3>Does this project</h3>
-                <h3>deserve a star?</h3>
-                <Icon as={AiFillGithub} />
+                <h3>Does this project deserve a star?</h3>
               </VStack>
+              <Icon as={AiFillGithub} />
             </ThisRepo>
           </a>
         </UserSection>
