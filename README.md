@@ -17,6 +17,30 @@ and wait a few seconds until the project dependencies are installed.
 
   In this project we can find Github users and their repositories with some information.
 Not all data from the repositories may be available, but we have the link to them.
+Something important about the GitHub API is that it allows a limited number of requests in a period of time. This can be a problem when implementing tests.
+With the following code: 
+
+```
+const get = (url) => {
+  return fetch(url, {
+    headers: {
+      authorization: process.env.GH,
+      accept: 'application/vnd.github.v3+json',
+    },
+  })
+}
+
+```
+the limit will increase considerably. In this function, `GH` is my access token to GitHub and is set in a file called `.env.local`. If you don't want to set your GitHub user token, You just keep the code how it is:
+
+```
+const get = (url) => {
+  return fetch(url)
+}
+
+```
+
+
 You only have to write the name in the input-text, if there is a user with that name you will be redirected to the UserPage.
 In UserPage there is a 'back to SearchPage' button.
 For each repository we can see the main language used in this project that the [Github API](https://api.github.com) provides to us.

@@ -7,12 +7,7 @@ import { UserPage } from './components/userPage'
 import { Header } from './components/styles'
 
 const get = (url) => {
-  return fetch(url, {
-    headers: {
-      authorization: process.env.GH,
-      accept: 'application/vnd.github.v3+json',
-    },
-  })
+  return fetch(url)
 }
 
 export function App () {
