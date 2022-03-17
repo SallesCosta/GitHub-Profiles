@@ -15,7 +15,7 @@ $ git clone https://github.com/SallesCosta/gh-ch-ls.git
 2. Once inside the directory, you can run `yarn`
 and wait a few seconds until the project dependencies are installed.
 
-3. Then run `yarn dev` then go to [localhost](http://localhost:3000) and voilà!
+3. Then run `yarn dev` then go to [localhost](http://localhost:3000) and voilï¿½!
 
   In this project we can find Github users and their repositories with some information.
 Not all data from the repositories may be available, but we have the link to them.
@@ -59,7 +59,7 @@ If the repository has no specified language, the following tag will be displayed
 
 > This is very common.
 
-This same tag will be displayed if the repository contains a language that is not registered.
+The same tag will be displayed if the repository contains a language that is not registered.
 Please Pull Request to expand this list of languages colored dynamically.
 
 # Testing
@@ -68,7 +68,7 @@ Please Pull Request to expand this list of languages colored dynamically.
 
 #### How?
 
-On terminal run `yarn test:e2e`. It will open the Cypress with the tests I did. So it's a good opportunity for PR again. Feel free to.
+On terminal, run `yarn test:e2e`. It will open the Cypress with the tests I did. So it's a good opportunity for PR again. Feel free to.
 
 Any questions? Any suggestions? We can talk about.
 
