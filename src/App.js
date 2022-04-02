@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import localforage from 'localforage'
-import { Text, Center } from '@chakra-ui/react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import { SearchPage } from './components/searchPage'
-import { UserPage } from './components/userPage'
-import { Header } from './components/styles'
+import { SearchPage } from './pages/searchPage/searchPage'
+import { UserPage } from './pages/userPage/userPage'
+import React, { useEffect, useState } from 'react'
+import { Text, Center } from '@chakra-ui/react'
+import localforage from 'localforage'
+import { Header } from './styles'
 
 const get = (url) => {
   return fetch(url)

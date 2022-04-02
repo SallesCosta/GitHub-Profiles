@@ -12,7 +12,7 @@ import {
   useToast,
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
-import { Button } from './styles'
+import { Button } from '../../styles'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CopyIcon } from '@chakra-ui/icons'
 import { yupResolver } from '@hookform/resolvers/yup'

@@ -1,4 +1,4 @@
-import { theme as T } from '../resource/theme'
+import { theme as T } from '../../resource/theme'
 import { AiFillGithub } from 'react-icons/ai'
 import { Icon } from '@chakra-ui/react'
 import {
@@ -9,13 +9,11 @@ import {
   ThisRepo,
   Grid,
   Repo,
-  // Tag,
   TagInternal,
   Button,
-  Wrap,
   HStack,
   UserSection,
-} from './styles'
+} from '../../styles'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export const UserPage = ({ userData, userRepos, backToSearch }) => {
