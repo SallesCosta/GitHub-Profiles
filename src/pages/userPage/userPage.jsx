@@ -1,6 +1,7 @@
 import { theme as T } from '../../resource/theme'
 import { AiFillGithub } from 'react-icons/ai'
 import { Icon } from '@chakra-ui/react'
+import Pagination from '../../pagination/index'
 import {
   Content,
   RepoHeader,
@@ -16,7 +17,7 @@ import {
 } from '../../styles'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
-export const UserPage = ({ userData, userRepos, backToSearch }) => {
+export const UserPage = ({ userData, userRepos, backToSearch, perPage }) => {
   return (
     <Content>
       <HStack>
@@ -59,6 +60,7 @@ export const UserPage = ({ userData, userRepos, backToSearch }) => {
             )
           })}
         </Grid>
+        <Pagination total={40} activePage={3}/>
       </HStack>
     </Content>
   )

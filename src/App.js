@@ -10,10 +10,11 @@ const get = (url) => {
   return fetch(url)
 }
 
-export function App () {
+export function App() {
   const [userData, setUserData] = useState(null)
   const [userRepos, setUserRepos] = useState(null)
   const [erro, setErro] = useState(false)
+  const [perPage, setPerPage] = useState(9)
 
   const navigate = useNavigate()
 
@@ -22,7 +23,7 @@ export function App () {
   }, [userData])
 
   useEffect(() => {
-    async function getFromStorage () {
+    async function getFromStorage() {
       const user = await localforage.getItem('GitHub Profiles')
 
       if (user) {
@@ -55,11 +56,12 @@ export function App () {
   }
 
   useEffect(() => {
-    function getReposData () {
+    function getReposData() {
       if (!userData) {
         return
       }
-      const toRepo = userData.repos_url
+
+      const toRepo = `${userData.repos_url}?per_page=${perPage}`
       get(toRepo)
         .then((res) => res.json())
         .then((json) => setUserRepos(json))
@@ -90,6 +92,7 @@ export function App () {
           path='user'
           element={
             <UserPage
+              perPage={perPage}
               backToSearch={backToSearch}
               userData={userData}
               userRepos={userRepos}
