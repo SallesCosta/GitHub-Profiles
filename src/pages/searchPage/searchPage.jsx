@@ -42,11 +42,12 @@ export const SearchPage = ({ onSubmit }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex mt='20px'>
           <Input
+            bg='white'
             mr='10px'
+            placeholder='user name...'
             type='search'
             label='User'
             {...register('user', { required: true })}
-            bg='white'
           />
           <Button id='submit' primary>
             Send
