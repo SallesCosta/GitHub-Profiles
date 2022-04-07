@@ -16,7 +16,17 @@ import {
   UserSection,
 } from '../../styles'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-export const UserPage = ({ userData, userRepos, backToSearch, perPage }) => {
+
+export const UserPage = ({
+  userData,
+  userRepos,
+  backToSearch,
+  perPage,
+  activePage,
+  getReposData,
+  setActivePage,
+  handlePagination,
+}) => {
   return (
     <Content>
       <HStack>
@@ -59,7 +69,11 @@ export const UserPage = ({ userData, userRepos, backToSearch, perPage }) => {
             )
           })}
         </Grid>
-        <Pagination total={10} activePage={9} onClick={console.log} />
+        <Pagination
+          total={10}
+          onClick={handlePagination}
+          activePage={activePage}
+        />
       </HStack>
     </Content>
   )

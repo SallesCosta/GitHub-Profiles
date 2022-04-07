@@ -1,5 +1,6 @@
 import pagination from './index'
 import { Pag, PagLink } from './style-pagination'
+
 const Dots = ({ className }) => <span>...</span>
 
 const Page = ({ page, pageLink, onClick }) => {
@@ -19,19 +20,21 @@ const Page = ({ page, pageLink, onClick }) => {
   )
 }
 
-export const Pagination = ({ total, activePage, pageLink, onClick }) => (
-  <Pag>
-    {pagination({ total, activePage }).map((page, index) => (
-      <PagLink key={index} active={activePage === page ? true : ''}>
-        <Page
-          page={page}
-          onClick={onClick}
-          pageLink={pageLink.replace('%page%', page)}
-        />
-      </PagLink>
-    ))}
-  </Pag>
-)
+export const Pagination = ({ total, activePage, onClick, pageLink }) => {
+  return (
+    <Pag>
+      {pagination({ total, activePage }).map((page, index) => (
+        <PagLink key={index} active={activePage === page ? true : ''}>
+          <Page
+            page={page}
+            onClick={onClick}
+            pageLink={pageLink.replace('%page%', page)}
+          />
+        </PagLink>
+      ))}
+    </Pag>
+  )
+}
 
 Pagination.defaultProps = {
   pageLink: '',

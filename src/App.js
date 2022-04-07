@@ -15,6 +15,7 @@ export function App() {
   const [userRepos, setUserRepos] = useState(null)
   const [erro, setErro] = useState(false)
   const [perPage, setPerPage] = useState(9)
+  const [activePage, setActivePage] = useState(1)
 
   const navigate = useNavigate()
 
@@ -25,7 +26,6 @@ export function App() {
   useEffect(() => {
     async function getFromStorage() {
       const user = await localforage.getItem('GitHub Profiles')
-
       if (user) {
         setUserData(user)
       }
@@ -55,17 +55,17 @@ export function App() {
     navigate('/')
   }
 
-  useEffect(() => {
-    function getReposData() {
-      if (!userData) {
-        return
-      }
-
-      const toRepo = `${userData.repos_url}?per_page=${perPage}`
-      get(toRepo)
-        .then((res) => res.json())
-        .then((json) => setUserRepos(json))
+  function getReposData(page = 1) {
+    if (!userData) {
+      return
     }
+    const toRepo = `${userData.repos_url}?per_page=${perPage}&page=${page}`
+    get(toRepo)
+      .then((res) => res.json())
+      .then((json) => setUserRepos(json))
+  }
+
+  useEffect(() => {
     getReposData()
   }, [userData])
 
@@ -92,10 +92,12 @@ export function App() {
           path='user'
           element={
             <UserPage
+              activePage={activePage}
               perPage={perPage}
               backToSearch={backToSearch}
               userData={userData}
               userRepos={userRepos}
+              handlePagination={(clicked) => getReposData(clicked)}
             />
           }
         />
