@@ -63,6 +63,7 @@ export function App() {
     get(toRepo)
       .then((res) => res.json())
       .then((json) => setUserRepos(json))
+    setActivePage(page)
   }
 
   useEffect(() => {
