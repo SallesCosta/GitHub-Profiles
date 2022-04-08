@@ -1,15 +1,5 @@
 import styled, { css } from 'styled-components/macro'
 
-export const Header = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.gray_600};
-    height: 70px;
-    font-size: 2rem;
-    display: grid;
-    place-items: center;
-  `}
-`
-
 export const Pag = styled.ul`
   ${({ theme }) => css`
     display: flex;

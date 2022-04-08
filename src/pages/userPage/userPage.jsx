@@ -52,29 +52,33 @@ export const UserPage = ({
             </ThisRepo>
           </a>
         </UserSection>
-        <Grid>
-          {userRepos.map((repo) => {
-            const stack = repo.language
-            return (
-              <Repo key={repo.id} id='repos'>
-                <RepoHeader>
-                  <h3>{repo.name}</h3>
-                  <a href={repo.html_url} target='_blank' rel='noreferrer'>
-                    <ExternalLinkIcon w={4} h={4} />
-                  </a>
-                </RepoHeader>
-                <p>{repo.description ? repo.description : 'No description'}</p>
-                <Tag tagName={stack} />
-              </Repo>
-            )
-          })}
-        </Grid>
-        <Pagination
-          total={10}
-          onClick={handlePagination}
-          activePage={activePage}
-        />
+        <>
+          <Grid>
+            {userRepos.map((repo) => {
+              const stack = repo.language
+              return (
+                <Repo key={repo.id} id='repos'>
+                  <RepoHeader>
+                    <h3>{repo.name}</h3>
+                    <a href={repo.html_url} target='_blank' rel='noreferrer'>
+                      <ExternalLinkIcon w={4} h={4} />
+                    </a>
+                  </RepoHeader>
+                  <p>
+                    {repo.description ? repo.description : 'No description'}
+                  </p>
+                  <Tag tagName={stack} />
+                </Repo>
+              )
+            })}
+          </Grid>
+        </>
       </HStack>
+      <Pagination
+        total={10}
+        onClick={handlePagination}
+        activePage={activePage}
+      />
     </Content>
   )
 }
