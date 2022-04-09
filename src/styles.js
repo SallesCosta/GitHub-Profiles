@@ -129,7 +129,7 @@ export const HStack = styled.div`
 `
 
 export const VStack = styled.div`
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 `

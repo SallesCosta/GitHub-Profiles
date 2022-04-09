@@ -28,7 +28,9 @@ export const UserPage = ({
   setActivePage,
   handlePagination,
 }) => {
-  const totalAredondado = Math.round(total.length / perPage) + 1
+  const totalAredondado = parseInt(userData.public_repos / perPage) + 1
+  // const totalAredondado = Math.round(userData.public_repos / perPage)+1 
+  // console.log('totalAredondado', totalAredondado)
 
   return (
     <Content>

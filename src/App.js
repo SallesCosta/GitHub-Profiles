@@ -60,11 +60,6 @@ export function App () {
     if (!userData) {
       return
     }
-    const totalRepo = get(userData.repos_url)
-      .then((res) => res.json())
-      .then((json) => setTotal(json))
-
-    // console.log('total: ', Math.round(total.length / perPage) + 1)
 
     const toRepo = `${userData.repos_url}?per_page=${perPage}&page=${page}`
     get(toRepo)
