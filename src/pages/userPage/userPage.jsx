@@ -22,11 +22,14 @@ export const UserPage = ({
   userRepos,
   backToSearch,
   perPage,
+  total,
   activePage,
   getReposData,
   setActivePage,
   handlePagination,
 }) => {
+  const totalAredondado = Math.round(total.length / perPage) + 1
+
   return (
     <Content>
       <HStack>
@@ -75,7 +78,7 @@ export const UserPage = ({
         </>
       </HStack>
       <Pagination
-        total={10}
+        total={totalAredondado}
         onClick={handlePagination}
         activePage={activePage}
       />

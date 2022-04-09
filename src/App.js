@@ -1,7 +1,7 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { SearchPage } from './pages/searchPage/searchPage'
 import { UserPage } from './pages/userPage/userPage'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Text, Center } from '@chakra-ui/react'
 import localforage from 'localforage'
 import { Header } from './styles'
@@ -10,12 +10,13 @@ const get = (url) => {
   return fetch(url)
 }
 
-export function App() {
+export function App () {
   const [userData, setUserData] = useState(null)
   const [userRepos, setUserRepos] = useState(null)
   const [erro, setErro] = useState(false)
   const [perPage, setPerPage] = useState(9)
   const [activePage, setActivePage] = useState(1)
+  const [total, setTotal] = useState()
 
   const navigate = useNavigate()
 
@@ -24,7 +25,7 @@ export function App() {
   }, [userData])
 
   useEffect(() => {
-    async function getFromStorage() {
+    async function getFromStorage () {
       const user = await localforage.getItem('GitHub Profiles')
       if (user) {
         setUserData(user)
@@ -55,10 +56,16 @@ export function App() {
     navigate('/')
   }
 
-  function getReposData(page = 1) {
+  function getReposData (page = 1) {
     if (!userData) {
       return
     }
+    const totalRepo = get(userData.repos_url)
+      .then((res) => res.json())
+      .then((json) => setTotal(json))
+
+    // console.log('total: ', Math.round(total.length / perPage) + 1)
+
     const toRepo = `${userData.repos_url}?per_page=${perPage}&page=${page}`
     get(toRepo)
       .then((res) => res.json())
@@ -95,6 +102,7 @@ export function App() {
             <UserPage
               activePage={activePage}
               perPage={perPage}
+              total={total}
               backToSearch={backToSearch}
               userData={userData}
               userRepos={userRepos}
