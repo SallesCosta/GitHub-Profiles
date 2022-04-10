@@ -28,9 +28,7 @@ export const UserPage = ({
   setActivePage,
   handlePagination,
 }) => {
-  const totalAredondado = parseInt(userData.public_repos / perPage) + 1
-  // const totalAredondado = Math.round(userData.public_repos / perPage)+1 
-  // console.log('totalAredondado', totalAredondado)
+  const totalAredondado = Math.ceil(userData.public_repos / perPage, 10)
 
   return (
     <Content>
@@ -57,7 +55,6 @@ export const UserPage = ({
             </ThisRepo>
           </a>
         </UserSection>
-        <>
           <Grid>
             {userRepos.map((repo) => {
               const stack = repo.language
@@ -77,7 +74,6 @@ export const UserPage = ({
               )
             })}
           </Grid>
-        </>
       </HStack>
       <Pagination
         total={totalAredondado}

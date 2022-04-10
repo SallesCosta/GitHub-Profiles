@@ -35,7 +35,7 @@ export const Grid = styled.div`
   margin-left: 2rem;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   grid-template-rows: repeat(auto, 1fr);
   grid-gap: 2rem;
 
@@ -100,6 +100,7 @@ export const Repo = styled.div`
     padding: 15px;
     width: 250px;
     min-height: 200px;
+    max-height: 200px;
     justify-content: space-between;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 

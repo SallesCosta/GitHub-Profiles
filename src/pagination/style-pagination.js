@@ -5,20 +5,24 @@ export const Pag = styled.ul`
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 15px;
   `}
 `
+
 export const PagLink = styled.li`
   ${({ theme }) => css`
     align-items: center;
-    border: 1px solid #ccc;
+    margin: 2px;
+    border-radius: 100%;
+    box-shadow: 5px 5px 5px rgba(0,0,0, 0.15);
     color: inherit;
     display: flex;
     height: 50px;
+    width: 50px;
     justify-content: center;
     min-width: 50px;
     text-decoration: none;
-    width: 50px;
-    color: ${(props) => (props.active ? '#fff' : 'inherit')};
-    background: ${(props) => (props.active ? '#333' : 'white')};
+    color: ${(props) => (props.active ? '#fff' : `${theme.colors.gray_600}`)};
+    background: ${(props) => (props.active ? `${theme.colors.gray_600}` : 'white')};
   `}
 `
