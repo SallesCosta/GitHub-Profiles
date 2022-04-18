@@ -30,10 +30,10 @@ export const Header = styled.div`
 `
 
 export const Grid = styled.div`
-  width: 90%;
+  width: 800px;
   max-width: 815px;
   margin-left: 2rem;
-
+  height: 700px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   grid-template-rows: repeat(auto, 1fr);
@@ -111,12 +111,21 @@ export const Repo = styled.div`
   h3 {
     font-size: 1.2rem;
     font-weight: bold;
+    max-width: 200px;
   }
   p {
     font-size: 0.9rem;
     overflow: hidden;
     height: 112px;
   }
+`
+
+export const RepoHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 30px;
+  overflow: hidden;
 `
 
 export const HStack = styled.div`
@@ -143,13 +152,7 @@ export const UserInfos = styled(VStack)`
   }
 `
 
-export const RepoHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 30px;
-  overflow: hidden;
-`
+
 
 export const UserSection = styled.div`
   ${({ theme }) => css`

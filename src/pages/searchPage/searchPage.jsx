@@ -18,9 +18,10 @@ import { CopyIcon } from '@chakra-ui/icons'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
+const sugs = ['luanpanno', 'gaearon', 'ashulin', 'craftzdog', 'benfrain']
+
 export const SearchPage = ({ onSubmit }) => {
   const toast = useToast()
-  const sugs = ['luanpanno', 'gaearon', 'ashulin', 'craftzdog', 'benfrain']
 
   const sugsOne = ['k', 'x', 'f']
 
@@ -42,6 +43,7 @@ export const SearchPage = ({ onSubmit }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex mt='20px'>
           <Input
+            // ref={InputRef}
             bg='white'
             mr='10px'
             placeholder='user name...'
@@ -55,7 +57,9 @@ export const SearchPage = ({ onSubmit }) => {
         </Flex>
       </form>
       <Center>
-        <Text fontWeight='Bold' color='tomato'>{errors.user?.message}</Text>
+        <Text fontWeight='Bold' color='tomato'>
+          {errors.user?.message}
+        </Text>
       </Center>
       <Box mt='30px'>
         <VStack>

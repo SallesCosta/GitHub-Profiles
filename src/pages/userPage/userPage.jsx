@@ -1,3 +1,4 @@
+// import { ErrorBoundary } from '../errorBoundary/errorBoundary'
 import { theme as T } from '../../resource/theme'
 import { AiFillGithub } from 'react-icons/ai'
 import { Icon } from '@chakra-ui/react'
@@ -21,14 +22,10 @@ export const UserPage = ({
   userData,
   userRepos,
   backToSearch,
-  perPage,
-  total,
   activePage,
-  getReposData,
-  setActivePage,
   handlePagination,
 }) => {
-  const totalAredondado = Math.ceil(userData.public_repos / perPage, 10)
+  const totalAredondado = Math.ceil(userData.public_repos / 9, 10)
 
   return (
     <Content>
@@ -55,6 +52,7 @@ export const UserPage = ({
             </ThisRepo>
           </a>
         </UserSection>
+        <VStack>
           <Grid>
             {userRepos.map((repo) => {
               const stack = repo.language
@@ -74,12 +72,13 @@ export const UserPage = ({
               )
             })}
           </Grid>
+          <Pagination
+            total={totalAredondado}
+            onClick={handlePagination}
+            activePage={activePage}
+          />
+        </VStack>
       </HStack>
-      <Pagination
-        total={totalAredondado}
-        onClick={handlePagination}
-        activePage={activePage}
-      />
     </Content>
   )
 }

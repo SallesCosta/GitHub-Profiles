@@ -1,3 +1,4 @@
+import { ErrorBoundary } from './pages/errorBoundary/errorBoundary'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { SearchPage } from './pages/searchPage/searchPage'
 import { UserPage } from './pages/userPage/userPage'
@@ -10,13 +11,11 @@ const get = (url) => {
   return fetch(url)
 }
 
-export function App () {
+export function App() {
   const [userData, setUserData] = useState(null)
   const [userRepos, setUserRepos] = useState(null)
   const [erro, setErro] = useState(false)
-  const [perPage, setPerPage] = useState(9)
   const [activePage, setActivePage] = useState(1)
-  const [total, setTotal] = useState()
 
   const navigate = useNavigate()
 
@@ -25,13 +24,12 @@ export function App () {
   }, [userData])
 
   useEffect(() => {
-    async function getFromStorage () {
+    async function getFromStorage() {
       const user = await localforage.getItem('GitHub Profiles')
       if (user) {
         setUserData(user)
       }
     }
-
     getFromStorage()
   }, [])
 
@@ -56,12 +54,12 @@ export function App () {
     navigate('/')
   }
 
-  function getReposData (page = 1) {
+  function getReposData(page = 1) {
     if (!userData) {
       return
     }
 
-    const toRepo = `${userData.repos_url}?per_page=${perPage}&page=${page}`
+    const toRepo = `${userData.repos_url}?per_page=9&page=${page}`
     get(toRepo)
       .then((res) => res.json())
       .then((json) => setUserRepos(json))
@@ -94,15 +92,15 @@ export function App () {
         <Route
           path='user'
           element={
-            <UserPage
-              activePage={activePage}
-              perPage={perPage}
-              total={total}
-              backToSearch={backToSearch}
-              userData={userData}
-              userRepos={userRepos}
-              handlePagination={(clicked) => getReposData(clicked)}
-            />
+            <ErrorBoundary>
+              <UserPage
+                activePage={activePage}
+                backToSearch={backToSearch}
+                userData={userData}
+                userRepos={userRepos}
+                handlePagination={(clicked) => getReposData(clicked)}
+              />
+            </ErrorBoundary>
           }
         />
       </Routes>

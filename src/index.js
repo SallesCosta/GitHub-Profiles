@@ -1,3 +1,4 @@
+import { ErrorBoundary } from './pages/errorBoundary/errorBoundary'
 import * as ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
@@ -18,12 +19,14 @@ ReactDOM.render(
   <ChakraProvider>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <CSSReset />
-        <Main>
-          <App />
-        </Main>
+        <ErrorBoundary>
+          <CSSReset />
+          <Main>
+            <App />
+          </Main>
+        </ErrorBoundary>
       </BrowserRouter>
     </ThemeProvider>
   </ChakraProvider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )
